@@ -29,7 +29,7 @@ class VenueFilterSet(filters.FilterSet):
 class VenueViewSet(viewsets.ReadOnlyModelViewSet, GeoModelAPIView):
     queryset = Venue.objects.all()
     serializer_class = VenueSerializer
-    filter_class = VenueFilterSet
+    #filter_class = VenueFilterSet
 
     def get_queryset(self):
         queryset = super(VenueViewSet, self).get_queryset()
@@ -52,6 +52,11 @@ class VenueViewSet(viewsets.ReadOnlyModelViewSet, GeoModelAPIView):
                     raise ParseError("'distance' needs to be a floating point number")
                 queryset = queryset.filter(wkb_geometry__distance_lte=(point, distance))
             queryset = queryset.distance(point).order_by('distance')
+
+        if 'type' in params:
+            types = params['type'].split(',')
+            queryset = queryset.filter(type__in=types)
+
         return queryset
 
 router = routers.DefaultRouter()

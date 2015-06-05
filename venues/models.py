@@ -17,7 +17,7 @@ class Venue(models.Model):
     wkb_geometry = models.GeometryField(srid=3067, blank=True, null=True)
     gml_id = models.CharField(max_length=1000, blank=True, null=True)
     id = models.IntegerField(blank=True, null=True)
-    tyyppikoodi = models.IntegerField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True, db_column='tyyppikoodi')
     tyyppi_nimi_fi = models.CharField(max_length=1000, blank=True, null=True)
     tyyppi_nimi_se = models.CharField(max_length=1000, blank=True, null=True)
     tyyppi_nimi_en = models.CharField(max_length=1000, blank=True, null=True)

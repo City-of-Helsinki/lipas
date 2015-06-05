@@ -117,3 +117,13 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+PROJECTION_SRID = 3067
+
+# If no country specified (for example through a REST API call), use this
+# as default.
+DEFAULT_COUNTRY = 'fi'
+# The word used for municipality in the OCD identifiers in the default country.
+DEFAULT_OCD_MUNICIPALITY = 'kunta'
+
+BOUNDING_BOX = [-548576, 6291456, 1548576, 8388608]

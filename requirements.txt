@@ -4,3 +4,4 @@ psycopg2
 -e git+https://github.com/City-of-Helsinki/munigeo@0d5b38958615743674e713260497835ecab662ce#egg=django-munigeo-master
 django-filter
 django-cors-headers
+djangorestframework-filters

@@ -85,6 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'lipas',
+        'CONN_MAX_AGE': 600,
     }
 }
 
